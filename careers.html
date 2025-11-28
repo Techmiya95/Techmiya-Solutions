@@ -117,6 +117,35 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* ---------- INTERNSHIP SPECIAL BUTTON ---------- */
+    .intern-btn {
+      background: linear-gradient(135deg, #ff4d4d, #ff8c42);
+      color: white;
+      font-weight: bold;
+      padding: 18px 35px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(255, 99, 71, 0.3);
+      transition: 0.3s ease;
+      text-decoration: none;   /* removed underline */
+      display: inline-block;
+      margin-top: 35px;        /* spacing added */
+    }
+
+    .intern-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 99, 71, 0.4);
+    }
+
+    /* ---------- COUNTDOWN ---------- */
+    #countdown {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #d63031;
+      letter-spacing: 1px;
+    }
+
     /* ---------- ABOUT SECTION ---------- */
     .about {
       max-width: 1000px;
@@ -186,6 +215,7 @@
   <!-- ---------- VACANCIES ---------- -->
   <section class="vacancies">
     <h3>Current Openings</h3>
+
     <div class="btn-container">
       <a href="https://forms.gle/fEHEGkc7PHEtaDPP9" target="_blank" class="btn">
         💼 Digital Marketing Vacancies
@@ -194,6 +224,15 @@
       <a href="https://forms.gle/r53AaH4ZPk8KfPyA7" target="_blank" class="btn">
         💻 Technical Openings – Associate Software Engineer
       </a>
+
+      <!-- ---------- INTERNSHIP BUTTON ---------- -->
+      <div style="width:100%; text-align:center;">
+        <a href="https://forms.gle/bnKVuk6tCr1f9ur67" target="_blank" class="intern-btn">
+          🚀 Enroll for Internship (Limited Slots!)
+        </a>
+
+        <div id="countdown"></div>
+      </div>
     </div>
   </section>
 
@@ -214,6 +253,30 @@
     <a href="mailto:hr@techmiyasolutions.com">hr@techmiyasolutions.com</a> |  
     <a href="#">www.techmiyasolutions.com</a>
   </footer>
+
+  <!-- ---------- COUNTDOWN SCRIPT ---------- -->
+  <script>
+    const countDownDate = new Date("Nov 30, 2025 23:59:59").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "⛔ Enrollment Closed";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `⏳ Last Date: Nov 30 — ${days}d ${hours}h ${mins}m ${secs}s left`;
+    }, 1000);
+  </script>
 
 </body>
 </html>
